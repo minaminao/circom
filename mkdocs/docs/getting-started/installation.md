@@ -7,13 +7,13 @@ TODO add and mini explain ffjavascript
 Put links to all the docs
 -->
 
-# Installing the circom ecosystem
+# circomエコシステムのインストール
 
-## &#9888; Important deprecation note
+## &#9888; 重要な推奨事項
 
-Javascriptで書かれた旧`circom`コンパイラは凍結されますが、[古いcircomリポジトリ](https://github.com/iden3/circom_old)からダウンロードすることは可能です。
+JavaScriptで書かれた旧`circom`コンパイラは将来的に凍結されますが、[古いcircomリポジトリ](https://github.com/iden3/circom_old)からダウンロードすることは可能です。
 
-## Installing dependencies
+## 依存関係のインストール
 
 `circom`とその関連ツールを実行するために、システムにいくつかの依存関係が必要です。
 
@@ -30,7 +30,7 @@ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
 * また、一連のnpmパッケージを配布しているので、`Node.js`と`npm`や `yarn`などのパッケージマネージャがシステムで利用可能であるはずです。`Node.js`の最近のバージョンでは、大きな整数のサポートや、コードの実行を高速化するウェブアセンブリコンパイラが含まれているので、より良いパフォーマンスを得るには、バージョン10以上をインストールしてください。
 
-## Installing circom
+## circomのインストール
 私たちのソースからインストールするには、`circom`リポジトリをクローンしてください。
 
 ```text
@@ -85,9 +85,9 @@ circom --help
    ARGS:
       <input>    Path to a circuit with a main component [default: ./circuit.circom]
 ```
-## Installing snarkjs <a id="installing-the-tools"></a>
+## snarkjsのインストール <a id="installing-the-tools"></a>
 
-`snarkjs` は、`circom` で生成されたアーティファクトからZK証明を生成・検証するコードを含むnpmパッケージです。
+`snarkjs` は、`circom` で生成されたアーティファクトからゼロ知識証明を生成・検証するコードを含むnpmパッケージです。
 
 `snarkjs`は、以下のコマンドでインストールできます。
 

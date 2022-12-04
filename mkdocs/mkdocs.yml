@@ -33,8 +33,8 @@ nav:
           - 回路のコンパイル: 'getting-started/compiling-circuits.md'
           - ウィットネスの計算: 'getting-started/computing-the-witness.md'
           # - Testing circuits: 'getting-started/testing-circuits.md'
-          - ZKによる回路の証明: 'getting-started/proving-circuits.md'
-     - ZKの背景: 'background/background.md'
+          - ゼロ知識による回路の証明: 'getting-started/proving-circuits.md'
+     - ゼロ知識の背景: 'background/background.md'
      - circom言語:
           - シグナル:
                - シグナル: 'circom-language/signals.md'

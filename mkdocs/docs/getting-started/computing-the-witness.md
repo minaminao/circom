@@ -7,9 +7,9 @@ description: >-
 
 ## ウィットネスとは？
 
-証明を作成する前に、回路のすべての制約に一致する回路のすべてのシグナルを計算する必要があります。そのために、このジョブをするのに役立つ`circom`によって生成された`Wasm`モジュールを使用します。また、`C++`のコードでも同様の方法で行うことができます（下記参照）。
+証明を作成する前に、回路のすべての制約に一致する回路のすべてのシグナルを計算する必要があります。そのために、`circom`によって生成された`Wasm`モジュールを使用します。また、`C++`のコードでも同様の方法で行うことができます（下記参照）。
 
-まず、`Wasm`のコードから見ていきましょう。生成された`Wasm`バイナリと3つのJavaScriptファイルを使って、入力のファイルを提供するだけで、モジュールは回路を実行し、すべての中間シグナルと出力を計算します。入力、中間シグナル、出力の集合を[ウィットネス](../../background/background#witness)と呼びます。
+まず、`Wasm`のコードから見ていきましょう。生成された`Wasm`バイナリと3つのJavaScriptファイルを用いて入力のファイルを提供するだけで、モジュールは回路を実行してすべての中間シグナルと出力を計算します。入力、中間シグナル、出力の集合を[ウィットネス](../../background/background#witness)と呼びます。
 
 今回は33という数値の因数分解ができることを証明したいです。`a = 3`と`b = 11`としましょう。
 
@@ -25,10 +25,11 @@ JavaScriptは2<sup>53</sup>より大きな整数を正確に扱えないので�
 
 ここで、ウィットネスを計算し、それを含むバイナリファイル`witness.wtns`を`snarkjs`が受け入れるフォーマットで生成します。
 
-`circom`コンパイラをフラグ`--wasm`と回路`multiplier2.circom`で呼び出すと、multiplier2.wasmの`Wasm`コードと必要な`JavaScript`ファイルすべてを含む`multiplier2_js`フォルダを見つけることができます。
+`circom`コンパイラをフラグ`--wasm`と回路`multiplier2.circom`で呼び出すと、multiplier2.wasmの`Wasm`コードと必要な`JavaScript`ファイルすべてを含む`multiplier2_js`フォルダが得られます。
 
 ## WebAssemblyによるウィットネスの計算 <a id="witness-from-wasm-directory"></a>
-ディレクトリ`multiplier2_js`に入力し、ファイル`input.json`に入力を追加して実行します。
+
+ディレクトリ`multiplier2_js`に移動し、ファイル`input.json`の入力を追加して、次のコマンドを実行します。
 
 ```text
 node generate_witness.js multiplier2.wasm input.json witness.wtns
@@ -38,13 +39,13 @@ node generate_witness.js multiplier2.wasm input.json witness.wtns
 
 より高速な方法として、C++ディレクトリを使用して、以前のファイル`input.json`を使用してウィットネスを計算できます。このディレクトリは、`circom`コンパイラを`--c`のフラグ付きで使用するときに作成されます。この例では、コンパイラはウィットネスの計算に必要なすべての`C++`コードと、対応する実行プログラムを簡単に生成するためのMakefileを含む`multiplier2_cpp`フォルダーを作成します。
 
-そのためには、ディレクトリ`multiplier2_cpp`に入り、実行します。
+そのためには、ディレクトリ`multiplier2_cpp`に移動し、次のコマンドを実行します。
 
 ```text
 make
 ```
 
-先ほどのコマンドでは、`multiplier2`という実行ファイルが作成されます。
+このコマンドでは、`multiplier2`という実行ファイルが作成されます。
 
 注意: C++のソースをコンパイルするために、あなたのシステムにインストールされている必要があるいくつかのライブラリに依存しています。
 特に、`nlohmann-json3-dev`、`libgmp-dev`、`nasm`を使用しています。

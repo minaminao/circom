@@ -1,8 +1,8 @@
 # 回路の証明
 
-回路をコンパイルし、適切な入力でウィットネス・カルキュレーターを実行をすると、計算されたすべてのシグナルを含む.wtnsという拡張子のファイルと、回路を記述する制約を含む.r1csという拡張子のファイルが作成されます。両ファイルは証明の作成に使用されます。
+回路をコンパイルし、適切な入力でウィットネスの計算を実行をすると、計算されたすべてのシグナルを含む.wtnsという拡張子のファイルと、回路を記述する制約を含む.r1csという拡張子のファイルが作成されます。両ファイルは証明の作成に使用されます。
 
-では、`snarkjs`ツールを使って、入力に対する証明を生成し、検証してみましょう。特に、multiplier2を使って、**33の2つの因数を提供することができることを証明する。** つまり、2つの整数`a`と`b`を掛け合わせると33という数値になるようなものを知っていることを示すのです。
+では、`snarkjs`ツールを使って、入力に対する証明を生成し、検証してみましょう。特に、multiplier2を使って、**33の2つの因数を提供できることを証明します。** つまり、2つの整数`a`と`b`を掛け合わせると33という数値になるようなものを知っていることを示すのです。
 
 [Groth16](https://eprint.iacr.org/2016/260) zk-SNARKプロトコルを使用します。
 このプロトコルを使用するには、[Trusted Setup](../../background/background#trusted-setup)を生成する必要があります。
@@ -11,7 +11,7 @@
 - Powers of Tau。回路に依存しない。
 - Phase 2。回路に依存する。
 
-次に、Trusted Setupを作成するための非常に基本的な式と、[Groth16](https://eprint.iacr.org/2016/260)証明の作成と検証のための基本的なコマンドを提供します。関連する[背景](../../background/background)を確認し、[snarkjsチュートリアル](https://github.com/iden3/snarkjs)を確認することで、より詳細な情報を得ることができます。
+次に、Trusted Setupを作成するための非常に基本的なセレモニーと、[Groth16](https://eprint.iacr.org/2016/260)証明の作成・検証のための基本的なコマンドを提供します。関連する[背景](../../background/background)を確認し、[snarkjsチュートリアル](https://github.com/iden3/snarkjs)を確認することで、より詳細な情報を得ることができます。
 
 ## Powers of Tau <a id="my-first-trusted-setup"></a>
 <!--
@@ -57,7 +57,7 @@ snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v
 snarkjs groth16 setup multiplier2.r1cs pot12_final.ptau multiplier2_0000.zkey
 ```
 
-Phase 2セレモニーにコントリビューションする。
+Phase 2セレモニーにコントリビューションします。
 
 ```text
 snarkjs zkey contribute multiplier2_0000.zkey multiplier2_0001.zkey --name="1st Contributor Name" -v
@@ -102,7 +102,7 @@ snarkjs zkey export verificationkey multiplier2_0001.zkey verification_key.json
 ```
 
 ## 証明の生成
-ウィットネスが計算され、Trusted Setupが既に実行されると、回路とウィットネスに関連する**zk-proofの生成**ができる。
+ウィットネスが計算され、Trusted Setupが実行済みであれば、回路とウィットネスに関連する**zk-proofの生成**ができます。
 
 ```text
 snarkjs groth16 prove multiplier2_0001.zkey witness.wtns proof.json public.json
@@ -110,12 +110,12 @@ snarkjs groth16 prove multiplier2_0001.zkey witness.wtns proof.json public.json
 
 このコマンドは、[Groth16](https://eprint.iacr.org/2016/260)プルーフを生成し、2つのファイルを出力します。
 
-* `proof.json`：証明を含みます。
+* `proof.json`: 証明を含みます。
 * `public.json`: 公開された入出力の値を含みます。
 
 ## 証明の検証
 
-その**証明の検証**をするには、以下のコマンドを実行します。
+**証明の検証**をするには、以下のコマンドを実行します。
 
 ```text
 snarkjs groth16 verify verification_key.json public.json proof.json

@@ -4,8 +4,9 @@ description: >-
   using the main features of circom: signals, variables, templates, components,
   and arrays.
 ---
-# Compiling our circuit
-コンパイラをインストールすると、以下のように利用可能なオプションが表示されます。
+# 回路のコンパイル
+
+コンパイラをインストールすると、以下のように利用可能なオプションを表示できます。
 
 ```console
 circom --help
@@ -37,8 +38,9 @@ circom --help
    ARGS:
       <input>    Path to a circuit with a main component [default: ./circuit.circom]
 ```
+
 [初めての回路の記述](../writing-circuits)で`Multiplier2`というテンプレートを作りました。
-しかし、実際に回路を作成するには、このテンプレートのインスタンスを作成する必要があります。そのために、以下のような内容のファイルを作成します。
+しかし、実際に回路を作成するには、このテンプレートのインスタンスを作成する必要があります。そのために、以下のようなファイルを作成します。
 
 ```text
 pragma circom 2.0.0;
@@ -52,7 +54,7 @@ template Multiplier2() {
 
  component main = Multiplier2();
 ```
-`circom`を使って演算回路を書いたら、それを拡張子`.circom`のファイルに保存しておく必要があります。回路は自分で作成してもよいですし、回路ライブラリ[`circomlib`](https://github.com/iden3/circomlib)のテンプレートを使ってもよいことを忘れないでください。
+`circom`を使って算術回路を書いたら、それを拡張子`.circom`のファイルに保存しておく必要があります。回路は自分で作成してもよいですし、回路ライブラリ[`circomlib`](https://github.com/iden3/circomlib)のテンプレートを使ってもよいことを忘れないでください。
 
 この例では、*multiplier2.circom*というファイルを作成します。
 あとは回路をコンパイルして、回路を表す算術方程式系を得ます。コンパイルの結果、ウィットネスを計算するプログラムも得られます。
@@ -70,9 +72,8 @@ circom multiplier2.circom --r1cs --wasm --sym --c
 
 * `--sym`: 注釈付きモードでConstraint Systemのデバッグや出力に必要なシンボルファイル`multiplier2.sym`を生成します。
 
-* `--c`: witnessを生成するためのCコードのコンパイルに必要ないくつかのファイル（multiplier2.cpp、multiplier2.dat、また、main.cppやMakeFileなどのコンパイルするプログラムに共通のファイル）を含むディレクトリ`multiplier2_cpp`が生成されます。
+* `--c`: witnessを生成するためのCコードのコンパイルに必要ないくつかのファイル（multiplier2.cpp、multiplier2.dat、また、main.cppやMakeFileなどのコンパイルするプログラムに共通のファイル）を含むディレクトリ`multiplier2_cpp`を生成します。
 
 これらのファイルを作成するディレクトリを指定するために、オプション`-o`を使用できます。
 
 バージョン2.0.8以降では、オプション`-l`を使用して、ディレクティブ`include`が示された回路を探すべきディレクトリを示すことができるようになりました。
-
