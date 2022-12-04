@@ -27,19 +27,19 @@ extra:
             link: https://iden3.io/circom
 
 nav:
-     - Getting started:
-          - Installation: 'getting-started/installation.md'
-          - Writing circuits: 'getting-started/writing-circuits.md'
-          - Compiling circuits: 'getting-started/compiling-circuits.md'
-          - Computing the witness: 'getting-started/computing-the-witness.md'
+     - はじめに:
+          - インストール: 'getting-started/installation.md'
+          - 回路の記述: 'getting-started/writing-circuits.md'
+          - 回路のコンパイル: 'getting-started/compiling-circuits.md'
+          - ウィットネスの計算: 'getting-started/computing-the-witness.md'
           # - Testing circuits: 'getting-started/testing-circuits.md'
-          - Proving circuits with ZK: 'getting-started/proving-circuits.md'
-     - Background in ZK: 'background/background.md'
-     - The circom Language:
-          - Signals:
-               - Signals: 'circom-language/signals.md'
+          - ZKによる回路の証明: 'getting-started/proving-circuits.md'
+     - ZKの背景: 'background/background.md'
+     - circom言語:
+          - シグナル:
+               - シグナル: 'circom-language/signals.md'
                - Variables & Mutability: 'circom-language/variables-and-mutability.md'
-          - Templates:
+          - テンプレート:
                - Templates & Components: 'circom-language/templates-and-components.md'
                - Pragma: 'circom-language/pragma.md'
                - Functions: 'circom-language/functions.md'
@@ -64,4 +64,4 @@ nav:
                - Circom Library: 'circom-language/circom-insight/circom-library.md'
      - More circuits: 
           - Basic circuits: 'more-circuits/more-basic-circuits.md'
-     - Downloads: 'downloads/downloads.md'
+     - ダウンロード: 'downloads/downloads.md'
