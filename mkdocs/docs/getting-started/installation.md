@@ -2,7 +2,7 @@
 description: This tutorial will guide you through the installation of circom and snarkJS.
 ---
 
-<!-- 
+<!--
 TODO add and mini explain ffjavascript
 Put links to all the docs
 -->
@@ -11,52 +11,49 @@ Put links to all the docs
 
 ## &#9888; Important deprecation note
 
-The old `circom` compiler written in Javascript will be frozen, but it can still be downloaded from the [old circom repository](https://github.com/iden3/circom_old).
+Javascriptで書かれた旧`circom`コンパイラは凍結されますが、[古いcircomリポジトリ](https://github.com/iden3/circom_old)からダウンロードすることは可能です。
 
 ## Installing dependencies
 
-You need several dependencies in your system to 
-run `circom` and its associated tools.
+`circom`とその関連ツールを実行するために、システムにいくつかの依存関係が必要です。
 
-   * The core tool is the `circom` compiler which is written in Rust.
-   To have Rust available in your system, you can install `rustup`. If you’re using Linux or macOS, open a terminal and enter the following command:
+* コアとなるツールは、Rustで書かれた`circom`コンパイラです。
+Rustを利用できるようにするには、`rustup`をインストールします。LinuxやmacOSを使用している場合は、ターミナルを開いて以下のコマンドを入力します。
 
-<!-- 
-TODO remove the command and put a link to rustup site 
+<!--
+TODO remove the command and put a link to rustup site
 -->
 
 ```shell
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 ```
 
-   * We also distribute a series of npm packages so `Node.js` and some package manager like `npm` or `yarn` should be available in your system. Recent versions of `Node.js` include big integer support and web assembly compilers that help run code faster, so to get a better performance, install version 10 or higher.
+* また、一連のnpmパッケージを配布しているので、`Node.js`と`npm`や `yarn`などのパッケージマネージャがシステムで利用可能であるはずです。`Node.js`の最近のバージョンでは、大きな整数のサポートや、コードの実行を高速化するウェブアセンブリコンパイラが含まれているので、より良いパフォーマンスを得るには、バージョン10以上をインストールしてください。
 
 ## Installing circom
-
-To install from our sources, clone the `circom` repository: 
+私たちのソースからインストールするには、`circom`リポジトリをクローンしてください。
 
 ```text
 git clone https://github.com/iden3/circom.git
 ```
 
-Enter the circom directory and use the cargo build to compile:
+circomディレクトリに入り、cargo buildでコンパイルします。
 
 ```text
 cargo build --release
 ```
 
-The installation takes around 3 minutes to be completed.
-When the command successfully finishes, it generates the `circom` binary in the directory `target/release`. 
-You can install this binary as follows:
+インストールが完了するまでには3分程度かかります。
+コマンドが正常に終了すると、ディレクトリ`target/release`に`circom`のバイナリが生成されます。
+このバイナリをインストールするには、次のようにします。
 
 ```text
 cargo install --path circom
 ```
 
-The previous command will install the `circom` binary in the directory 
-`$HOME/.cargo/bin`. 
+このコマンドは、`circom`のバイナリをディレクトリ`$HOME/.cargo/bin`にインストールします。
 
-Now, you should be able to see all the options of the executable by using the `help` flag:
+これで、`help`フラグを使えば、実行ファイルのすべてのオプションを見ることができるようになるはずです。
 
 ```console
 circom --help
@@ -88,12 +85,11 @@ circom --help
    ARGS:
       <input>    Path to a circuit with a main component [default: ./circuit.circom]
 ```
-
 ## Installing snarkjs <a id="installing-the-tools"></a>
 
-`snarkjs` is a npm package that contains code to generate and validate ZK proofs from the artifacts produced by `circom`. 
+`snarkjs` は、`circom` で生成されたアーティファクトからZK証明を生成・検証するコードを含むnpmパッケージです。
 
-You can install `snarkjs` with the following command:
+`snarkjs`は、以下のコマンドでインストールできます。
 
 ```text
 npm install -g snarkjs
