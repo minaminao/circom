@@ -11,13 +11,13 @@
 
 ---
 
-# <div align="center"><b>[Start here](https://iden3.github.io/circom/getting-started/installation/)</b></div>
+# <div align="center"><b>[Start here](getting-started/installation/)</b></div>
 
 ---
 
 # &#9888; Important deprecation note
 
-現在の`circom`はRustで書かれたコンパイラです。JavaScriptで書かれた旧`circom`コンパイラは将来的に凍結されますが、[以前のcircomリポジトリ](https://github.com/iden3/circom_old)からダウンロードすることが可能です。
+現在の`circom`はRustで書かれたコンパイラです。JavaScriptで書かれた旧`circom`コンパイラは将来的に凍結されますが、[古いcircomリポジトリ](https://github.com/iden3/circom_old)からダウンロードすることが可能です。
 
 ---
 
